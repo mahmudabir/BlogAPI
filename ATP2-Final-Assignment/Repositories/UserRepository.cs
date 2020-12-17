@@ -13,5 +13,21 @@ namespace ATP2_Final_Assignment.Repositories
         {
             return this.GetAll().Where(user => user.Username == username && user.Password == password).FirstOrDefault();
         }
+
+        //public User Get(int id)
+        //{
+        //    return this.GetAll().Where(x => x.UserId == id).FirstOrDefault();
+        //}
+
+        public void Update(User user)
+        {
+            AssDbContext db = new AssDbContext();
+
+            User FormDB = db.Users.Where(x => x.UserId == user.UserId).FirstOrDefault();
+            User ToUpdate = FormDB;
+
+            ToUpdate = user;
+            db.SaveChanges();
+        }
     }
 }

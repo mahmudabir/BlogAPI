@@ -33,10 +33,10 @@ namespace Inventory_Rest_API.Repositories
             this.context.SaveChanges();
         }
 
-        public void Update(T entity)
-        {
-            this.context.Entry(entity).State = EntityState.Modified;
-            this.context.SaveChanges();
-        }
+        //public void Update(T entity)
+        //{
+        //    this.context.Entry(entity).State = EntityState.Modified;
+        //    this.context.SaveChanges();
+        //}
     }
 }

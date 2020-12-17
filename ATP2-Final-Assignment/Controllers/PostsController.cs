@@ -1,4 +1,5 @@
-﻿using ATP2_Final_Assignment.Models;
+﻿using ATP2_Final_Assignment.Attirbutes;
+using ATP2_Final_Assignment.Models;
 using ATP2_Final_Assignment.Repositories;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace ATP2_Final_Assignment.Controllers
 
             if (postFromDB != null)
             {
-                return Ok(postRepository.Get(id));
+                return Ok(postFromDB);
             }
             else
             {
@@ -36,7 +37,7 @@ namespace ATP2_Final_Assignment.Controllers
             }
         }
 
-        [Route("")]
+        [Route(""), BasicAuthentication]
         public IHttpActionResult Post(Post post)
         {
             post.PostTime = DateTime.Now;
@@ -52,7 +53,7 @@ namespace ATP2_Final_Assignment.Controllers
             }
         }
 
-        [Route("{id}")]
+        [Route("{id}"), BasicAuthentication]
         public IHttpActionResult Put([FromUri] int id, [FromBody] Post post)
         {
             if (ModelState.IsValid)
@@ -76,7 +77,7 @@ namespace ATP2_Final_Assignment.Controllers
             }
         }
 
-        [Route("{id}")]
+        [Route("{id}"), BasicAuthentication]
         public IHttpActionResult Delete(int id)
         {
             var postFromDB = postRepository.Get(id);

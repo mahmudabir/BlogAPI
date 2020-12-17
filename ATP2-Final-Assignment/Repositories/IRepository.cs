@@ -11,7 +11,7 @@ namespace Inventory_Rest_API.Repositories
         List<T> GetAll();
         T Get(int id);
         void Insert(T entity);
-        void Update(T entity);
+        //void Update(T entity);
         void Delete(int id);
     }
 }
