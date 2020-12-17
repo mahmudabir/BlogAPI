@@ -24,6 +24,6 @@ namespace ATP2_Final_Assignment.Models
 
         [ForeignKey("Post")]
         public int PostId { get; set; }
-        public User Post { get; set; }
+        public Post Post { get; set; }
     }
 }

@@ -95,6 +95,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012171129129_UserModelCreate.cs" />
+    <Compile Include="Migrations\202012171129129_UserModelCreate.designer.cs">
+      <DependentUpon>202012171129129_UserModelCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012171130404_PostModelCreate.cs" />
+    <Compile Include="Migrations\202012171130404_PostModelCreate.designer.cs">
+      <DependentUpon>202012171130404_PostModelCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012171134430_CommentModelCreate.cs" />
+    <Compile Include="Migrations\202012171134430_CommentModelCreate.designer.cs">
+      <DependentUpon>202012171134430_CommentModelCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AssDbContext.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Post.cs" />
@@ -114,6 +127,17 @@
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
     <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202012171129129_UserModelCreate.resx">
+      <DependentUpon>202012171129129_UserModelCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012171130404_PostModelCreate.resx">
+      <DependentUpon>202012171130404_PostModelCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012171134430_CommentModelCreate.resx">
+      <DependentUpon>202012171134430_CommentModelCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

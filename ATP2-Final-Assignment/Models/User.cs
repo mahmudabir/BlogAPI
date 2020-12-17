@@ -12,7 +12,6 @@ namespace ATP2_Final_Assignment.Models
         [Key]
         public int UserId { get; set; }
         [Required]
-        [Index(IsUnique = true)]
         public string Username { get; set; }
         [Required]
         public string Password { get; set; }
