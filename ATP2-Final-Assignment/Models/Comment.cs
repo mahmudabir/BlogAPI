@@ -14,9 +14,7 @@ namespace ATP2_Final_Assignment.Models
         [Required]
         public string Text { get; set; }
 
-        [Required]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public DateTime CommentTime { get; set; } = DateTime.Now;
+        public DateTime CommentTime { get; set; }
 
         [ForeignKey("User")]
         public int UserId { get; set; }

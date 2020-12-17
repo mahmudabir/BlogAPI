@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -16,16 +17,14 @@ namespace ATP2_Final_Assignment.Models
         [Required]
         public string Content { get; set; }
 
-        [Required]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public DateTime PostTime { get; set; } = DateTime.Now;
+        public DateTime PostTime { get; set; }
 
 
         [ForeignKey("User")]
         public int UserId { get; set; }
         public virtual User User { get; set; }
 
-
+        [JsonIgnore]
         public ICollection<Comment> Comments { get; set; }
     }
 }

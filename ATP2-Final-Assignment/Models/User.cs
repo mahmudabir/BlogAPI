@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Xml.Serialization;
 
 namespace ATP2_Final_Assignment.Models
 {
@@ -16,8 +18,9 @@ namespace ATP2_Final_Assignment.Models
         [Required]
         public string Password { get; set; }
 
-
+        [JsonIgnore]
         public ICollection<Post> Posts { get; set; }
+        [JsonIgnore]
         public ICollection<Comment> Comments { get; set; }
     }
 }

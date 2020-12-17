@@ -23,6 +23,14 @@ namespace ATP2_Final_Assignment.Models
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+
+            modelBuilder.Entity<Post>()
+                .Property(post => post.PostTime)
+                .IsOptional();
+
+            modelBuilder.Entity<Comment>()
+                .Property(comment => comment.CommentTime)
+                .IsOptional();
         }
     }
 }

@@ -17,17 +17,10 @@ namespace ATP2_Final_Assignment.Controllers
     {
         private UserRepository userRepository = new UserRepository();
 
-        [Route(""), BasicAuthentication]
+        [Route("")]
         public IHttpActionResult GetLogin()
         {
-            if (ModelState.IsValid)
-            {
-                return Ok(userRepository.GetAll());
-            }
-            else
-            {
-                return BadRequest(ModelState);
-            }
+            return Ok(userRepository.GetAll());
         }
 
         [Route("login")]
