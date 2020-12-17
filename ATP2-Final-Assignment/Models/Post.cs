@@ -23,7 +23,7 @@ namespace ATP2_Final_Assignment.Models
 
         [ForeignKey("User")]
         public int UserId { get; set; }
-        public User User { get; set; }
+        public virtual User User { get; set; }
 
 
         public ICollection<Comment> Comments { get; set; }
