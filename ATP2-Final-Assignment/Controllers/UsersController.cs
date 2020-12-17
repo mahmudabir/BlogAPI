@@ -17,6 +17,19 @@ namespace ATP2_Final_Assignment.Controllers
     {
         private UserRepository userRepository = new UserRepository();
 
+        [Route(""), BasicAuthentication]
+        public IHttpActionResult GetLogin()
+        {
+            if (ModelState.IsValid)
+            {
+                return Ok(userRepository.GetAll());
+            }
+            else
+            {
+                return BadRequest(ModelState);
+            }
+        }
+
         [Route("login")]
         public IHttpActionResult PostLogin(User user)
         {
@@ -25,7 +38,7 @@ namespace ATP2_Final_Assignment.Controllers
                 User userFromDB = userRepository.GetUserByUsernameNPassword(user.Username, user.Password);
                 if (userFromDB != null)
                 {
-                    return StatusCode(HttpStatusCode.OK);
+                    return Ok(userFromDB);
                 }
                 else
                 {
@@ -39,7 +52,7 @@ namespace ATP2_Final_Assignment.Controllers
         }
 
 
-        [Route("logout")]
+        [Route("logout"), BasicAuthentication]
         public IHttpActionResult GetLogout()
         {
 
