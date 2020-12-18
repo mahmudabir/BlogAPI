@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Login</title>
+    <script type="text/javascript" src="../Content/js/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="../Content/scripts/User/Authenticate.js"></script>
+</head>
+<body>
+    <p id="msg"></p>
+    <hr><br />
+
+    <div id="divlogin">
+        <h2>Login Form</h2>
+
+        <table border="0">
+            <tr>
+                <td><strong><label>Username: </label></strong></td>
+                <td><input type="text" id="username" placeholder="Username" /></td>
+            </tr>
+            <tr>
+                <td><strong><label>Password: </label></strong></td>
+                <td><input type="password" id="password" placeholder="Password" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <br />
+                    <input type="button" id="btnlogin" value="Login" />
+                    <input type="button" id="gotoregister" value="Goto Register" />
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <div id="divregister">
+        <h2>Registration Form</h2>
+
+        <table border="0">
+            <tr>
+                <td><strong><label>Username: </label></strong></td>
+                <td><input type="text" id="regusername" placeholder="Username" /></td>
+            </tr>
+            <tr>
+                <td><strong><label>Password: </label></strong></td>
+                <td><input type="password" id="regpassword" placeholder="Password" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <br />
+                    <input type="button" id="btnregister" value="Submit" />
+                    <input type="button" id="gotologin" value="Goto Login" />
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+</body>
+</html>

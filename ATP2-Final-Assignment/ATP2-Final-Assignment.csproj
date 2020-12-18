@@ -93,6 +93,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Views\Content\css\bootstrap.css" />
+    <Content Include="Views\Content\js\bootstrap.js" />
+    <Content Include="Views\Content\js\jquery-3.5.1.js" />
+    <Content Include="Views\Content\js\popper.js" />
+    <Content Include="Views\Content\scripts\Post\Index.js" />
+    <Content Include="Views\Content\scripts\User\Authenticate.js" />
+    <Content Include="Views\Content\scripts\User\Index.js" />
+    <Content Include="Views\Index.html" />
+    <Content Include="Views\Post\Index.html" />
+    <Content Include="Views\Post\Comments\Index.html" />
+    <Content Include="Views\Post\Details\Index.html" />
+    <Content Include="Views\User\Index.html" />
+    <Content Include="Views\User\Authenticate.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -131,7 +144,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202012171954050_ModelsCreated.resx">

@@ -17,10 +17,10 @@ namespace ATP2_Final_Assignment.Controllers
     {
         private UserRepository userRepository = new UserRepository();
 
-        [Route("")]
-        public IHttpActionResult GetLogin()
+        [Route("{id}")]
+        public IHttpActionResult GetUserByID(int id)
         {
-            return Ok(userRepository.GetAll());
+            return Ok(userRepository.Get(id));
         }
 
         [Route("login")]
