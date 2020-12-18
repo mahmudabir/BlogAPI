@@ -100,16 +100,21 @@
                     var data = xhr.responseJSON;
 
                     var str = '';
-                    str += "<h3>Comments</h3>";
+
 
                     for (var i = 0; i < data.length; i++) {
-                        str += "<p>" + data[i].text + "</p><br>";
-                        console.log(i);
+                        //str += "<p><strong>" + data[i].username + ":      </strong><label>" + data[i].text + "<label></p>";
+
+
+                        str += "<tr><td>"
+                            + data[i].username + "</td><td><p>"
+                            + data[i].text + "</p></td><td>"
+                            + data[i].commentTime + "</td>"
+                            + "<td><a href=\"Comment/Index.html?pid=" + data[i].commentId + "&cid=" + data[i].postId + " \"><button style=\"color:green;\""
+                            + "\">Details</button></a></td></tr>";
                     }
 
-
-
-                    $("#divpostComments").html(str);
+                    $("#allComments tbody").html(str);
                 }
                 else {
                     $("#msg").html(xhr.status + ":" + xhr.statusText)

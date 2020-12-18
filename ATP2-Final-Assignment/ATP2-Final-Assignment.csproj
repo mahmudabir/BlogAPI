@@ -102,6 +102,7 @@
     <Content Include="Views\Content\scripts\User\Authenticate.js" />
     <Content Include="Views\Content\scripts\User\Index.js" />
     <Content Include="Views\Index.html" />
+    <Content Include="Views\Post\Comment\Index.html" />
     <Content Include="Views\Post\Details.html" />
     <Content Include="Views\Post\Index.html" />
     <Content Include="Views\Content\scripts\Post\Modify.js" />
