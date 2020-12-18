@@ -21,13 +21,15 @@ namespace ATP2_Final_Assignment.Repositories
 
         public void Update(User user)
         {
-            AssDbContext db = new AssDbContext();
+            using (AssDbContext db = new AssDbContext())
+            {
 
-            User FormDB = db.Users.Where(x => x.UserId == user.UserId).FirstOrDefault();
-            User ToUpdate = FormDB;
+                var fromDB = db.Users.Where(x => x.UserId == user.UserId).First<User>();
+                fromDB.Username = user.Username;
+                fromDB.Password = user.Password;
 
-            ToUpdate = user;
-            db.SaveChanges();
+                db.SaveChanges();
+            }
         }
     }
 }

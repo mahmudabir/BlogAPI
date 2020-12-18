@@ -16,9 +16,8 @@ namespace ATP2_Final_Assignment.Models
 
         public DateTime CommentTime { get; set; }
 
-        [ForeignKey("User")]
-        public int UserId { get; set; }
-        public virtual User User { get; set; }
+        [Required]
+        public string Username { get; set; }
 
         [ForeignKey("Post")]
         public int PostId { get; set; }

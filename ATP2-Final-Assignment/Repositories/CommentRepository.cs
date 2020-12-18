@@ -2,6 +2,7 @@
 using Inventory_Rest_API.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -26,13 +27,17 @@ namespace ATP2_Final_Assignment.Repositories
 
         public void Update(Comment comment)
         {
-            AssDbContext db = new AssDbContext();
+            using (AssDbContext db = new AssDbContext())
+            {
 
-            Comment FormDB = db.Comments.Where(x => x.CommentId == comment.CommentId).FirstOrDefault();
-            Comment ToUpdate = FormDB;
+                var fromDB = db.Comments.Where(x => x.CommentId == comment.CommentId).First<Comment>();
 
-            ToUpdate = comment;
-            db.SaveChanges();
+                fromDB.Text = comment.Text;
+                fromDB.CommentTime = comment.CommentTime;
+                fromDB.Username = comment.Username;
+
+                db.SaveChanges();
+            }
         }
 
     }

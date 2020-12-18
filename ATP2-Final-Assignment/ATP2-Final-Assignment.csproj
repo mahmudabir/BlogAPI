@@ -97,13 +97,15 @@
     <Content Include="Views\Content\js\bootstrap.js" />
     <Content Include="Views\Content\js\jquery-3.5.1.js" />
     <Content Include="Views\Content\js\popper.js" />
+    <Content Include="Views\Content\scripts\Post\Details.js" />
     <Content Include="Views\Content\scripts\Post\Index.js" />
     <Content Include="Views\Content\scripts\User\Authenticate.js" />
     <Content Include="Views\Content\scripts\User\Index.js" />
     <Content Include="Views\Index.html" />
+    <Content Include="Views\Post\Details.html" />
     <Content Include="Views\Post\Index.html" />
-    <Content Include="Views\Post\Comments\Index.html" />
-    <Content Include="Views\Post\Details\Index.html" />
+    <Content Include="Views\Content\scripts\Post\Modify.js" />
+    <Content Include="Views\Post\Modify.html" />
     <Content Include="Views\User\Index.html" />
     <Content Include="Views\User\Authenticate.html" />
     <Content Include="Web.config" />
@@ -117,9 +119,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202012171954050_ModelsCreated.cs" />
-    <Compile Include="Migrations\202012171954050_ModelsCreated.Designer.cs">
-      <DependentUpon>202012171954050_ModelsCreated.cs</DependentUpon>
+    <Compile Include="Migrations\202012182005207_UserModelCreated.cs" />
+    <Compile Include="Migrations\202012182005207_UserModelCreated.Designer.cs">
+      <DependentUpon>202012182005207_UserModelCreated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012182008197_PostModelCreated.cs" />
+    <Compile Include="Migrations\202012182008197_PostModelCreated.Designer.cs">
+      <DependentUpon>202012182008197_PostModelCreated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012182043088_CommentModelCreated.cs" />
+    <Compile Include="Migrations\202012182043088_CommentModelCreated.Designer.cs">
+      <DependentUpon>202012182043088_CommentModelCreated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012182054582_UserDataInput.cs" />
+    <Compile Include="Migrations\202012182054582_UserDataInput.Designer.cs">
+      <DependentUpon>202012182054582_UserDataInput.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AssDbContext.cs" />
@@ -146,8 +160,17 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202012171954050_ModelsCreated.resx">
-      <DependentUpon>202012171954050_ModelsCreated.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012182005207_UserModelCreated.resx">
+      <DependentUpon>202012182005207_UserModelCreated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012182008197_PostModelCreated.resx">
+      <DependentUpon>202012182008197_PostModelCreated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012182043088_CommentModelCreated.resx">
+      <DependentUpon>202012182043088_CommentModelCreated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012182054582_UserDataInput.resx">
+      <DependentUpon>202012182054582_UserDataInput.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

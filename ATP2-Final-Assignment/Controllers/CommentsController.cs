@@ -56,7 +56,7 @@ namespace ATP2_Final_Assignment.Controllers
             if (ModelState.IsValid)
             {
                 commentRepository.Insert(comment);
-                string uri = Url.Link("GetCommentByID", new { id = comment.PostId });
+                string uri = Url.Link("GetCommentByID", new { pid = comment.PostId, cid = comment.CommentId });
                 return Created(uri, comment);
             }
             else

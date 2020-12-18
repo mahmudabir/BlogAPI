@@ -7,13 +7,13 @@ namespace ATP2_Final_Assignment.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class ModelsCreated : IMigrationMetadata
+    public sealed partial class CommentModelCreated : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ModelsCreated));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CommentModelCreated));
         
         string IMigrationMetadata.Id
         {
-            get { return "202012171954050_ModelsCreated"; }
+            get { return "202012182043088_CommentModelCreated"; }
         }
         
         string IMigrationMetadata.Source

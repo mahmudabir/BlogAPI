@@ -19,7 +19,7 @@ namespace ATP2_Final_Assignment.Controllers
         [Route("")]
         public IHttpActionResult Get()
         {
-            return Ok(postRepository.GetAll());
+            return Ok(postRepository.GetAll().OrderByDescending(x => x.PostTime));
         }
 
         [Route("{id}", Name = "GetPostByID")]

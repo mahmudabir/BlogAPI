@@ -15,15 +15,21 @@ namespace ATP2_Final_Assignment.Repositories
         //    return this.GetAll().Where(x => x.PostId == id).FirstOrDefault();
         //}
 
+
         public void Update(Post post)
         {
-            AssDbContext db = new AssDbContext();
+            using (AssDbContext db = new AssDbContext())
+            {
 
-            Post FormDB = db.Posts.Where(x => x.PostId == post.PostId).FirstOrDefault();
-            Post ToUpdate = FormDB;
+                var fromDB = db.Posts.Where(x => x.PostId == post.PostId).First<Post>();
 
-            ToUpdate = post;
-            db.SaveChanges();
+                fromDB.Title = post.Title;
+                fromDB.Content = post.Content;
+                fromDB.PostTime = post.PostTime;
+
+
+                db.SaveChanges();
+            }
         }
     }
 }
