@@ -61,4 +61,53 @@
 
 
 
+
+    var modifyComment = function () {
+        $.ajax({
+            url: "https://localhost:44345/api/posts/" + pid + "/comments/" + cid,
+            method: "PUT",
+            header: "Content-Type:application/json",
+            data: {
+                commentId: cid,
+                username: localStorage.username,
+                text: $("#commentText").val(),
+
+
+            },
+            headers: {
+                'Authorization': 'Basic ' + localStorage.authUser,
+            },
+            complete: function (xhr, status) {
+                if (xhr.status == 200) {
+                    $("#msg").html("Comment Modified");
+                } else {
+                    $("#msg").html(xhr.state + ":" + xhr.statusText);
+                }
+            }
+        });
+    }
+
+
+
+
+
+    $("#commentModify").click(function () {
+        if (confirm("Do you really want to modify the comment?")) {
+
+
+
+            modifyComment();
+
+
+            alert("Comment Modified.");
+            //window.location.href = "Index.html?pid=" + pid + "&cid=" + cid;
+        } else {
+            alert("Modify request stopped.");
+        }
+
+    });
+
+
+
+
 });
