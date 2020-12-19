@@ -99,12 +99,14 @@
     <Content Include="Views\Content\js\jquery-3.5.1.js" />
     <Content Include="Views\Content\js\popper.js" />
     <Content Include="Views\Content\scripts\Post\Comment\Index.js" />
+    <Content Include="Views\Content\scripts\Post\Comment\Modify.js" />
     <Content Include="Views\Content\scripts\Post\Details.js" />
     <Content Include="Views\Content\scripts\Post\Index.js" />
     <Content Include="Views\Content\scripts\User\Authenticate.js" />
     <Content Include="Views\Content\scripts\User\Index.js" />
     <Content Include="Views\Index.html" />
     <Content Include="Views\Post\Comment\Index.html" />
+    <Content Include="Views\Post\Comment\Modify.html" />
     <Content Include="Views\Post\Details.html" />
     <Content Include="Views\Post\Index.html" />
     <Content Include="Views\Content\scripts\Post\Modify.js" />

@@ -39,7 +39,7 @@
 
 
                     if (localStorage.username == data.username) {
-                        str += "<hr><a href=\"Modify.html?pid=" + data.commentId + "\"><button>Modify</button></a><br><br>"
+                        str += "<hr><a href=\"Modify.html?pid=" + data.postId + "&cid=" + data.commentId + "\"><button>Modify</button></a><br><br>"
                             + "<button id=\"commentDelete\">Delete</button>"
                     } else {
 
