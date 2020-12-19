@@ -98,6 +98,7 @@
     <Content Include="Views\Content\js\bootstrap.js" />
     <Content Include="Views\Content\js\jquery-3.5.1.js" />
     <Content Include="Views\Content\js\popper.js" />
+    <Content Include="Views\Content\scripts\Post\Comment\Index.js" />
     <Content Include="Views\Content\scripts\Post\Details.js" />
     <Content Include="Views\Content\scripts\Post\Index.js" />
     <Content Include="Views\Content\scripts\User\Authenticate.js" />

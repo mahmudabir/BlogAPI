@@ -32,16 +32,21 @@
                     str += "<h2>" + data.title + "</h2><hr>"
                         + "<p>" + data.content + "</p><br>";
 
-                    str += "<hr><a href=\"Modify.html?pid=" + data.postId + "\"><button>Modify</button></a><br><br>"
-                        + "<button id=\"postDelete\">Delete</button>"
 
-                    //onclick =\"return confirm('are you sure?')\"
+
+
+                    if (localStorage.username == data.user.username) {
+                        str += "<hr><a href=\"Modify.html?pid=" + data.postId + "\"><button>Modify</button></a><br><br>"
+                            + "<button id=\"postDelete\">Delete</button>"
+                    } else {
+
+                    }
+
 
                     $("#divpostDetails").html(str);
 
                     $("#postDelete").click(function () {
                         if (confirm("Do you really want to delete the post?")) {
-
 
                             var deletePost = function () {
                                 $.ajax({
@@ -61,13 +66,14 @@
                                             $("#msg").html(xmr2.state + ":" + xhr2.statusText);
                                         }
                                     }
-                                })
+                                });
                             }
 
                             deletePost();
 
 
                             alert("Post Deleted.");
+                            window.location.href = "Index.html";
                         } else {
                             alert("Delete request stopped.");
                         }
@@ -110,7 +116,7 @@
                             + data[i].username + "</td><td><p>"
                             + data[i].text + "</p></td><td>"
                             + data[i].commentTime + "</td>"
-                            + "<td><a href=\"Comment/Index.html?pid=" + data[i].commentId + "&cid=" + data[i].postId + " \"><button style=\"color:green;\""
+                            + "<td><a href=\"Comment/Index.html?pid=" + data[i].postId + "&cid=" + data[i].commentId + " \"><button style=\"color:green;\""
                             + "\">Details</button></a></td></tr>";
                     }
 
