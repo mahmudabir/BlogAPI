@@ -99,7 +99,7 @@
 
 
             alert("Post Modified.");
-            //window.location.href = "Index.html";
+            window.location.href = "Details.html?pid=" + pid;
         } else {
             alert("Modify request stopped.");
         }
