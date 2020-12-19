@@ -57,7 +57,7 @@
                                     method: "DELETE",
                                     header: "Content-Type:application/json",
                                     data: {
-                                        postId: data.commentId,
+                                        commentId: data.commentId,
                                     },
                                     headers: {
                                         'Authorization': 'Basic ' + localStorage.authUser,
@@ -76,7 +76,7 @@
 
 
                             alert("Comment Deleted.");
-                            window.location.href = "../Index.html";
+                            window.location.href = "../Details.html?pid=" + pid;
                         } else {
                             alert("Delete request stopped.");
                         }
