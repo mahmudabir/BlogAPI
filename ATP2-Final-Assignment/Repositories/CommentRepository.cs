@@ -33,8 +33,6 @@ namespace ATP2_Final_Assignment.Repositories
                 var fromDB = db.Comments.Where(x => x.CommentId == comment.CommentId).First<Comment>();
 
                 fromDB.Text = comment.Text;
-                fromDB.CommentTime = comment.CommentTime;
-                fromDB.Username = comment.Username;
 
                 db.SaveChanges();
             }

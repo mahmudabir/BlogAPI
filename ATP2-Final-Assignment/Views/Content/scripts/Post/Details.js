@@ -63,7 +63,7 @@
                                         if (xhr2.status == 204) {
                                             $("#msg").html("Post Deleted");
                                         } else {
-                                            $("#msg").html(xmr2.state + ":" + xhr2.statusText);
+                                            $("#msg").html(xhr2.state + ":" + xhr2.statusText);
                                         }
                                     }
                                 });

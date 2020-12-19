@@ -25,7 +25,6 @@ namespace ATP2_Final_Assignment.Repositories
 
                 fromDB.Title = post.Title;
                 fromDB.Content = post.Content;
-                fromDB.PostTime = post.PostTime;
 
 
                 db.SaveChanges();
