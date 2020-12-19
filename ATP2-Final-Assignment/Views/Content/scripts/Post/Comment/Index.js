@@ -36,14 +36,22 @@
                         + "<p>" + data.text + "</p><br>";
 
 
-
-
-                    if (localStorage.username == data.username) {
-                        str += "<hr><a href=\"Modify.html?pid=" + data.postId + "&cid=" + data.commentId + "\"><button>Modify</button></a><br><br>"
-                            + "<button id=\"commentDelete\">Delete</button>"
+                    if (localStorage.username == data.post.user.username) {
+                        if (localStorage.username == data.username) {
+                            str += "<hr><a href=\"Modify.html?pid=" + data.postId + "&cid=" + data.commentId + "\"><button>Modify</button></a><br><br>";
+                            str += "<button id=\"commentDelete\">Delete</button>";
+                        } else {
+                            str += "<button id=\"commentDelete\">Delete</button>";
+                        }
                     } else {
+                        if (localStorage.username == data.username) {
+                            str += "<hr><a href=\"Modify.html?pid=" + data.postId + "&cid=" + data.commentId + "\"><button>Modify</button></a><br><br>";
+                            str += "<button id=\"commentDelete\">Delete</button>";
+                        } else {
 
+                        }
                     }
+
 
 
                     $("#divpostComment").html(str);
