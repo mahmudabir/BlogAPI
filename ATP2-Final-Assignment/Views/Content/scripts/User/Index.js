@@ -9,7 +9,7 @@
             url: "https://localhost:44345/api/users/" + localStorage.userId,
             method: "GET",
             headers: {
-                'Authorization': 'Basic ' + btoa(localStorage.authUser),
+                'Authorization': 'Basic ' + localStorage.authUser,
             },
             complete: function (xhr, status) {
                 if (xhr.status == 200) {
