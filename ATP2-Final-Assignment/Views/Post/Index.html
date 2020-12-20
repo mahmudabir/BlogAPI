@@ -5,8 +5,18 @@
     <title>Home Page</title>
     <script type="text/javascript" src="../Content/js/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="../Content/scripts/Post/Index.js"></script>
+    <script type="text/javascript">
+        //window.location.href = "User/Authenticate.html";
+        $(function () {
+            $("#loadCommon").load("https://localhost:44345/Views/Common/Common.html");
+        });
+    </script>
 </head>
 <body>
+    <div id="loadCommon">
+
+    </div>
+
     <p id="msg"></p>
     <hr><br />
 

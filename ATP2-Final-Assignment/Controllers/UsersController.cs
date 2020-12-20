@@ -17,13 +17,13 @@ namespace ATP2_Final_Assignment.Controllers
     {
         private UserRepository userRepository = new UserRepository();
 
-        [Route("{id}")]
+        [Route("{id}"), BasicAuthentication]
         public IHttpActionResult GetUserByID(int id)
         {
             return Ok(userRepository.Get(id));
         }
 
-        [Route("login")]
+        [Route("login"), BasicAuthentication]
         public IHttpActionResult PostLogin(User user)
         {
             if (ModelState.IsValid)

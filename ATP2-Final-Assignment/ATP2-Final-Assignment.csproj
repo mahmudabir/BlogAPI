@@ -94,6 +94,7 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Index.html" />
+    <Content Include="Views\Common\Common.html" />
     <Content Include="Views\Content\css\bootstrap.css" />
     <Content Include="Views\Content\js\bootstrap.js" />
     <Content Include="Views\Content\js\jquery-3.5.1.js" />

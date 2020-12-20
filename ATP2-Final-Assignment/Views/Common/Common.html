@@ -1,0 +1,43 @@
+﻿<script type="text/javascript" src="Content/js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+    $("#logout").click(function () {
+
+        var loadLogout = function () {
+            $.ajax({
+                url: "https://localhost:44345/api/users/logout",
+                method: "GET",
+                headers: {
+                    'Authorization': 'Basic ' + localStorage.authUser,
+                },
+                complete: function (xmlhttp, status) {
+                    if (xmlhttp.status == 200) {
+                        console.log("Logout Success");
+                        localStorage.clear();
+                        console.log(localStorage.user);
+                        window.location.href = "https://localhost:44345/Views/Index.html";
+                    } else {
+                        $("#msg").html(xmlhttp.status + ":" + xmlhttp.statusText)
+                    }
+                }
+            })
+        }
+
+
+        loadLogout();
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a href="https://localhost:44345/Index.html"><input type="button" id="homepage" value="Home Page"></a>&#9;&#9;
+<input type="button" id="logout" value="Logout">&#9;&#9;

@@ -18,7 +18,7 @@ namespace ATP2_Final_Assignment.Controllers
 
 
 
-        [Route("comments")]
+        [Route("comments"), BasicAuthentication]
         public IHttpActionResult Get(int pid)
         {
             var commentFromDB = commentRepository.GetAllCommentsByPost(pid);
@@ -33,7 +33,7 @@ namespace ATP2_Final_Assignment.Controllers
             }
         }
 
-        [Route("comments/{cid}", Name = "GetCommentByID")]
+        [Route("comments/{cid}", Name = "GetCommentByID"), BasicAuthentication]
         public IHttpActionResult Get(int pid, int cid)
         {
             var commentFromDB = commentRepository.GetPostCommentByID(pid, cid);

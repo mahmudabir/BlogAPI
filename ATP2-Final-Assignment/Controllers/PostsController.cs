@@ -16,13 +16,13 @@ namespace ATP2_Final_Assignment.Controllers
         private PostRepository postRepository = new PostRepository();
 
 
-        [Route("")]
+        [Route(""), BasicAuthentication]
         public IHttpActionResult Get()
         {
             return Ok(postRepository.GetAll().OrderByDescending(x => x.PostTime));
         }
 
-        [Route("{id}", Name = "GetPostByID")]
+        [Route("{id}", Name = "GetPostByID"), BasicAuthentication]
         public IHttpActionResult Get(int id)
         {
             var postFromDB = postRepository.Get(id);

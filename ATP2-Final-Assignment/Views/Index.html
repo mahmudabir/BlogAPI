@@ -3,11 +3,20 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <script type="text/javascript" src="Content/js/jquery-3.5.1.js"></script>
     <script type="text/javascript">
         window.location.href = "User/Authenticate.html";
+        $(function () {
+            $("#loadCommon").load("https://localhost:44345/Views/Common/Common.html");
+        });
     </script>
 </head>
 <body>
+    <div id="loadCommon">
+
+    </div>
+
+
 
 </body>
 
