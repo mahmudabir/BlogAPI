@@ -132,7 +132,55 @@
     loadAllComments();
 
 
+    ////////////////////////////////////////
 
+
+
+    var createComment = function () {
+        $.ajax({
+            url: "https://localhost:44345/api/posts/" + pid + "/comments/",
+            method: "POST",
+            data: {
+                text: $("#inputText").val(),
+                username: localStorage.username,
+                postId: pid,
+            },
+            headers: {
+                'Authorization': 'Basic ' + localStorage.authUser,
+            },
+            complete: function (xhr, status) {
+                if (xhr.status == 201) {
+                    console.log("Comment Posting Success");
+                    $("#msg").html("Successfully Posted");
+
+                    $("#divNewComment").hide();
+                    $("#btnNewComment").show();
+                    loadAllComments();
+                }
+                else {
+                    $("#msg").html(xhr.status + ":" + xhr.statusText);
+                }
+            }
+        });
+    }
+
+
+
+
+    $("#btnNewComment").click(function () {
+        $("#divNewComment").show();
+        $(this).hide();
+    });
+
+    $("#btnCancelComment").click(function () {
+        $("#divNewComment").hide();
+        $("#btnNewComment").show();
+    });
+
+
+    $("#btnCreateComment").click(function () {
+        createComment();
+    });
 
 
 });

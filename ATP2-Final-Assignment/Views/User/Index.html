@@ -5,26 +5,45 @@
     <title>User Details</title>
     <script type="text/javascript" src="../Content/js/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="../Content/scripts/User/Index.js"></script>
+    <script type="text/javascript">
+        //window.location.href = "User/Authenticate.html";
+        $(function () {
+            $("#loadCommon").load("https://localhost:44345/Views/Common/Common.html");
+        });
+    </script>
 </head>
 <body>
+    <div id="loadCommon">
+
+    </div>
+
+
     <p id="msg"></p>
     <hr><br />
 
     <h2>User Details</h2>
 
     <div id="userDetails">
-        <table border="1">
+        <table>
             <tr>
                 <td><label><strong>User ID: </strong></label></td>
                 <td><label id="userID"></label></td>
             </tr>
             <tr>
                 <td><label><strong>Username: </strong></label></td>
-                <td><label id="username"></label></td>
+                <td><input id="username" value="" disabled></td>
             </tr>
             <tr>
                 <td><label><strong>Password: </strong></label></td>
-                <td><label id="password"></label></td>
+                <td><input id="password" value="" disabled></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <br />
+                    <input type="button" id="btnEnableEdit" value="Edit" />
+                    <input type="button" id="btnEditProfile" value="Submit" hidden />
+                </td>
             </tr>
         </table>
     </div>

@@ -25,7 +25,6 @@ namespace ATP2_Final_Assignment.Repositories
             {
 
                 var fromDB = db.Users.Where(x => x.UserId == user.UserId).First<User>();
-                fromDB.Username = user.Username;
                 fromDB.Password = user.Password;
 
                 db.SaveChanges();

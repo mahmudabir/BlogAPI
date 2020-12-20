@@ -30,6 +30,39 @@
     <hr />
 
 
+
+    <input type="button" id="btnNewComment" value="New Comment"><hr />
+
+
+    <div id="divNewComment" hidden>
+
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <label>Comment Text: </label>
+                    </td>
+                    <td>
+                        <textarea id="inputText" cols="50" rows="10"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <div align="right">
+                            <input type="button" id="btnCreateComment" value="Create Comment" />
+                            <input type="button" id="btnCancelComment" value="Cancel" />
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+
+
+
     <div id="divpostComments">
         <h3>Comments</h3>
         <table id="allComments" border="1">

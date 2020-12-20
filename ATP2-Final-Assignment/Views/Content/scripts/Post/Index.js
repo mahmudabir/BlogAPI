@@ -36,13 +36,62 @@
 
                 }
                 else {
-                    $("#msg").html(xhr.status + ":" + xhr.statusText)
+                    $("#msg").html(xhr.status + ":" + xhr.statusText);
                 }
             }
         });
     }
 
     loadAllPosts();
+
+
+
+
+    var createPost = function () {
+        $.ajax({
+            url: "https://localhost:44345/api/posts",
+            method: "POST",
+            data: {
+                title: $("#inputTitle").val(),
+                content: $("#inputContent").val(),
+                userId: localStorage.userId,
+            },
+            headers: {
+                'Authorization': 'Basic ' + localStorage.authUser,
+            },
+            complete: function (xhr, status) {
+                if (xhr.status == 201) {
+                    console.log("Status Update Success");
+                    $("#msg").html("Successfully Posted");
+                    $("#divNewPost").hide();
+                    $("#btnNewPost").show();
+                    loadAllPosts();
+                }
+                else {
+                    $("#msg").html(xhr.status + ":" + xhr.statusText);
+                }
+            }
+        });
+    }
+
+
+
+
+    $("#btnNewPost").click(function () {
+        $("#divNewPost").show();
+        $(this).hide();
+    });
+
+    $("#btnCancelPost").click(function () {
+        $("#divNewPost").hide();
+        $("#btnNewPost").show();
+    });
+
+
+    $("#btnCreatePost").click(function () {
+        createPost();
+
+    });
 
 
 
