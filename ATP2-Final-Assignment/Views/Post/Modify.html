@@ -5,29 +5,53 @@
     <title>Update Post</title>
     <script type="text/javascript" src="../Content/js/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="../Content/scripts/Post/Modify.js"></script>
-    <script type="text/javascript">
-        //window.location.href = "User/Authenticate.html";
-        $(function () {
-            $("#loadCommon").load("https://localhost:44345/Views/Common/Common.html");
-        });
-    </script>
+    <link rel="stylesheet" href="../Content/css/bootstrap.css" crossorigin="anonymous">
 </head>
-<body>
-    <div id="loadCommon">
+<body class="bg-secondary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="https://localhost:44345/Views/Post/Index.html">Blog</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="https://localhost:44345/Views/Post/Index.html">Home</a>
+                </li>
+            </ul>
+            <a class="btn btn-outline-success my-2 my-sm-0 mr-2" href="https://localhost:44345/Views/User/Index.html">Profile</a>
+            <input class="btn btn-outline-danger my-2 my-sm-0 mr-2" type="button" id="logout" value="Logout">
+        </div>
+    </nav>
+
+    <div id="msg">
 
     </div>
 
+    <div class="jumbotron">
 
-    <p id="msg"></p>
-    <hr><br />
 
-    <div id="divModifyPost">
-        <input type="text" id="postTitle" value="" /><br />
-        <textarea id="postContent" rows="10" cols="100"></textarea><br>
+        <div id="divModifyPost">
+            <table>
+                <tr>
+                    <td><label><strong>Title: </strong></label></td>
+                    <td><input type="text" id="postTitle" value="" /></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><label><strong>Content: </label></strong></td>
+                    <td>
+                        <textarea id="postContent" rows="10" cols="100"></textarea><br />
+                        <button class="btn btn-success" id="postModify">Modify</button>
+                    </td>
+                </tr>
+            </table>
 
-        <hr>
-        <button id="postModify">Modify</button><br>
+        </div>
     </div>
-
 </body>
+<script src="../Content/js/jquery-3.5.1.js"></script>
+<script src="../Content/js/popper.js"></script>
+<script src="../Content/js/bootstrap.js"></script>
 </html>

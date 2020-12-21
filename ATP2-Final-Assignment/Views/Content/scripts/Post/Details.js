@@ -12,7 +12,7 @@
     }
 
 
-
+    $("#divNewComment").attr("hidden", "hidden");
 
     var loadPost = function () {
         $.ajax({
@@ -36,8 +36,8 @@
 
 
                     if (localStorage.username == data.user.username) {
-                        str += "<hr><a href=\"Modify.html?pid=" + data.postId + "\"><button>Modify</button></a><br><br>"
-                            + "<button id=\"postDelete\">Delete</button>"
+                        str += "<hr><a href=\"Modify.html?pid=" + data.postId + "\"><button class=\"btn btn-primary\">Modify</button></a><br><br>"
+                            + "<button class=\"btn btn-danger\" id=\"postDelete\">Delete</button>"
                     } else {
 
                     }
@@ -61,9 +61,9 @@
                                     },
                                     complete: function (xhr2, status) {
                                         if (xhr2.status == 204) {
-                                            $("#msg").html("Post Deleted");
+                                            $("#msg").html("<div class=\"alert alert-primary\" role=\"alert\">Post Deleted</div>");
                                         } else {
-                                            $("#msg").html(xhr2.state + ":" + xhr2.statusText);
+                                            $("#msg").html("<div class=\"alert alert-primary\" role=\"alert\">" + xhr.status + ":" + xhr.statusText + "</div>");
                                         }
                                     }
                                 });
@@ -81,7 +81,7 @@
                     });
                 }
                 else {
-                    $("#msg").html(xhr.status + ":" + xhr.statusText);
+                    $("#msg").html("<div class=\"alert alert-primary\" role=\"alert\">" + xhr.status + ":" + xhr.statusText + "</div>");
                     window.location.href = "Index.html";
                 }
             }
@@ -112,18 +112,37 @@
                         //str += "<p><strong>" + data[i].username + ":      </strong><label>" + data[i].text + "<label></p>";
 
 
-                        str += "<tr><td>"
-                            + data[i].username + "</td><td><p>"
-                            + data[i].text + "</p></td><td>"
-                            + data[i].commentTime + "</td>"
-                            + "<td><a href=\"Comment/Index.html?pid=" + data[i].postId + "&cid=" + data[i].commentId + " \"><button style=\"color:green;\""
-                            + "\">Details</button></a></td></tr>";
+                        //str += "<tr><td>"
+                        //    + data[i].username + "</td><td><p>"
+                        //    + data[i].text + "</p></td><td>"
+                        //    + data[i].commentTime + "</td>"
+                        //    + "<td><a href=\"Comment/Index.html?pid=" + data[i].postId + "&cid=" + data[i].commentId + " \"><button class=\"btn btn-primary\""
+                        //    + "\">Details</button></a></td></tr>";
+
+
+                        str += "<div class=\"card \">"
+                            + "<div class=\"card-header\">Posted By:<strong> @"
+                            + data[i].username + "</strong>"
+                            + "</div>"
+                            + "<div class=\"card-body\">"
+                            //+ "<h5 class=\"card-title\">" + data[i].title + "</h5>"
+                            + "<p class=\"card-text\">" + data[i].text + "</p>"
+                            + "<a href=\"Comment/Index.html?pid=" + data[i].postId + "&cid=" + data[i].commentId + " \" class=\"btn btn-primary\">Details</a>"
+                            + "</div>"
+                            + "<div class=\"card-footer text-muted\">Posted On: <strong>"
+                            + data[i].commentTime + "</strong>"
+                            + "</div >"
+                            + " </div ><br><br>";
+
+
+
                     }
 
-                    $("#allComments tbody").html(str);
+                    //$("#allComments tbody").html(str);
+                    $("#divpostComments").html(str);
                 }
                 else {
-                    $("#msg").html(xhr.status + ":" + xhr.statusText)
+                    $("#msg").html("<div class=\"alert alert-primary\" role=\"alert\">" + xhr.status + ":" + xhr.statusText + "</div>");
                 }
             }
         });
@@ -151,29 +170,53 @@
             complete: function (xhr, status) {
                 if (xhr.status == 201) {
                     console.log("Comment Posting Success");
-                    $("#msg").html("Successfully Posted");
+                    $("#msg").html("<div class=\"alert alert-primary\" role=\"alert\">Successfully Posted</div>");
 
                     $("#divNewComment").hide();
                     $("#btnNewComment").show();
                     loadAllComments();
                 }
                 else {
-                    $("#msg").html(xhr.status + ":" + xhr.statusText);
+                    $("#msg").html("<div class=\"alert alert-primary\" role=\"alert\">" + xhr.status + ":" + xhr.statusText + "</div>");
                 }
             }
         });
     }
 
+    var loadLogout = function () {
+        $.ajax({
+            url: "https://localhost:44345/api/users/logout",
+            method: "GET",
+            headers: {
+                'Authorization': 'Basic ' + localStorage.authUser,
+            },
+            complete: function (xmlhttp, status) {
+                if (xmlhttp.status == 200) {
+                    console.log("Logout Success");
+                    localStorage.clear();
+                    console.log(localStorage.user);
+                    window.location.href = "https://localhost:44345/Views/Index.html";
+                } else {
+                    $("#msg").html("<div class=\"alert alert-primary\" role=\"alert\">" + xhr.status + ":" + xhr.statusText + "</div>");
+                }
+            }
+        })
+    }
+
+    $("#logout").click(function () {
+        loadLogout();
+    });
+
 
 
 
     $("#btnNewComment").click(function () {
-        $("#divNewComment").show();
+        $("#divNewComment").removeAttr("hidden");
         $(this).hide();
     });
 
     $("#btnCancelComment").click(function () {
-        $("#divNewComment").hide();
+        $("#divNewComment").attr("hidden", "hidden");
         $("#btnNewComment").show();
     });
 

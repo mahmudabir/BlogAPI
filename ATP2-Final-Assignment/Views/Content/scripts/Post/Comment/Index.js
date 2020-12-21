@@ -38,15 +38,15 @@
 
                     if (localStorage.username == data.post.user.username) {
                         if (localStorage.username == data.username) {
-                            str += "<hr><a href=\"Modify.html?pid=" + data.postId + "&cid=" + data.commentId + "\"><button>Modify</button></a><br><br>";
-                            str += "<button id=\"commentDelete\">Delete</button>";
+                            str += "<hr><a href=\"Modify.html?pid=" + data.postId + "&cid=" + data.commentId + "\"><button class=\"btn btn-primary\">Modify</button></a><br><br>";
+                            str += "<button class=\"btn btn-danger\" id=\"commentDelete\">Delete</button>";
                         } else {
-                            str += "<button id=\"commentDelete\">Delete</button>";
+                            str += "<button class=\"btn btn-danger\" id=\"commentDelete\">Delete</button>";
                         }
                     } else {
                         if (localStorage.username == data.username) {
-                            str += "<hr><a href=\"Modify.html?pid=" + data.postId + "&cid=" + data.commentId + "\"><button>Modify</button></a><br><br>";
-                            str += "<button id=\"commentDelete\">Delete</button>";
+                            str += "<hr><a href=\"Modify.html?pid=" + data.postId + "&cid=" + data.commentId + "\"><button class=\"btn btn-primary\">Modify</button></a><br><br>";
+                            str += "<button class=\"btn btn-danger\" id=\"commentDelete\">Delete</button>";
                         } else {
 
                         }
@@ -102,6 +102,30 @@
     loadComment();
 
 
+
+    var loadLogout = function () {
+        $.ajax({
+            url: "https://localhost:44345/api/users/logout",
+            method: "GET",
+            headers: {
+                'Authorization': 'Basic ' + localStorage.authUser,
+            },
+            complete: function (xmlhttp, status) {
+                if (xmlhttp.status == 200) {
+                    console.log("Logout Success");
+                    localStorage.clear();
+                    console.log(localStorage.user);
+                    window.location.href = "https://localhost:44345/Views/Index.html";
+                } else {
+                    $("#msg").html(xmlhttp.status + ":" + xmlhttp.statusText)
+                }
+            }
+        })
+    }
+
+    $("#logout").click(function () {
+        loadLogout();
+    });
 
 
 

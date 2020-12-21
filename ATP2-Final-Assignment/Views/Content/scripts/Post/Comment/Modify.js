@@ -42,14 +42,14 @@
                         //str += "<hr><button id=\"postModify\">Modify</button></a><br><br>";
                         //$("#divModifyPost").html(str);
 
-                        $("#divModifyComment h2").text(data.username);
+                        $("#divModifyComment h2").text(data.username + "'s Comment");
                         $("#divModifyComment textarea").text(data.text);
                     } else {
                         window.location.href = "../Post/Details.html?pid=" + pid;
                     }
                 }
                 else {
-                    $("#msg").html(xhr.status + ":" + xhr.statusText);
+                    $("#msg").html("<div class=\"alert alert-primary\" role=\"alert\">" + xhr.status + ":" + xhr.statusText + "</div>");
                     //window.location.href = "Index.html";
                 }
             }
@@ -79,9 +79,9 @@
             },
             complete: function (xhr, status) {
                 if (xhr.status == 200) {
-                    $("#msg").html("Comment Modified");
+                    $("#msg").html("<div class=\"alert alert-primary\" role=\"alert\">Comment Modified</div>");
                 } else {
-                    $("#msg").html(xhr.state + ":" + xhr.statusText);
+                    $("#msg").html("<div class=\"alert alert-primary\" role=\"alert\">" + xhr.status + ":" + xhr.statusText + "</div>");
                 }
             }
         });
@@ -108,6 +108,28 @@
     });
 
 
+    var loadLogout = function () {
+        $.ajax({
+            url: "https://localhost:44345/api/users/logout",
+            method: "GET",
+            headers: {
+                'Authorization': 'Basic ' + localStorage.authUser,
+            },
+            complete: function (xmlhttp, status) {
+                if (xmlhttp.status == 200) {
+                    console.log("Logout Success");
+                    localStorage.clear();
+                    console.log(localStorage.user);
+                    window.location.href = "https://localhost:44345/Views/Index.html";
+                } else {
+                    $("#msg").html("<div class=\"alert alert-primary\" role=\"alert\">" + xhr.status + ":" + xhr.statusText + "</div>");
+                }
+            }
+        })
+    }
 
+    $("#logout").click(function () {
+        loadLogout();
+    });
 
 });

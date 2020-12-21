@@ -50,7 +50,7 @@
                     }
                 }
                 else {
-                    $("#msg").html(xhr.status + ":" + xhr.statusText);
+
                     window.location.href = "Index.html";
                 }
             }
@@ -78,9 +78,9 @@
             },
             complete: function (xhr, status) {
                 if (xhr.status == 200) {
-                    $("#msg").html("Post Modified");
+                    $("#msg").html("<div class=\"alert alert-primary\" role=\"alert\">Post Modified</div>");
                 } else {
-                    $("#msg").html(xhr.state + ":" + xhr.statusText);
+                    $("#msg").html("<div class=\"alert alert-primary\" role=\"alert\">" + xhr.status + ":" + xhr.statusText + "</div>");
                 }
             }
         });
@@ -99,11 +99,36 @@
 
 
             alert("Post Modified.");
-            window.location.href = "Details.html?pid=" + pid;
+            //window.location.href = "Details.html?pid=" + pid;
         } else {
             alert("Modify request stopped.");
         }
 
+    });
+
+
+    var loadLogout = function () {
+        $.ajax({
+            url: "https://localhost:44345/api/users/logout",
+            method: "GET",
+            headers: {
+                'Authorization': 'Basic ' + localStorage.authUser,
+            },
+            complete: function (xmlhttp, status) {
+                if (xmlhttp.status == 200) {
+                    console.log("Logout Success");
+                    localStorage.clear();
+                    console.log(localStorage.user);
+                    window.location.href = "https://localhost:44345/Views/Index.html";
+                } else {
+                    $("#msg").html("<div class=\"alert alert-primary\" role=\"alert\">" + xhr.status + ":" + xhr.statusText + "</div>");
+                }
+            }
+        })
+    }
+
+    $("#logout").click(function () {
+        loadLogout();
     });
 
 

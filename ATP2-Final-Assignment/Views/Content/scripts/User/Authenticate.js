@@ -39,12 +39,14 @@
                     console.log(localStorage.userId);
                     console.log(localStorage.username);
                     console.log(localStorage.authUser);
-                    console.log("Logout Success");
+                    console.log("Login Success");
 
                     window.location.href = "../Post/Index.html";
                 }
                 else {
-                    $("#msg").html(xhr.status + ":" + xhr.statusText)
+                    //$("#msg").show();
+                    //$("#msg").html(xhr.status + ":" + xhr.statusText);
+                    $("#msg").html("<div class=\"alert alert-primary\" role=\"alert\">" + xhr.status + ":" + xhr.statusText + "</div>");
                 }
             }
         });
@@ -65,10 +67,12 @@
                 if (xhr.status == 201) {
                     console.log("Registration Success");
 
-                    window.location.href = "Authenticate.html";
+                    //window.location.href = "Authenticate.html";
+                    $("#msg").html("<div class=\"alert alert-primary\" role=\"alert\">Successfully Registered</div>");
                 }
                 else {
-                    $("#msg").html(xhr.status + ":" + xhr.statusText)
+                    //$("#msg").show();
+                    $("#msg").html("<div class=\"alert alert-primary\" role=\"alert\">" + xhr.status + ":" + xhr.statusText + "</div>");
                 }
             }
         });
@@ -83,4 +87,10 @@
         loadRegister();
     });
 
+    $("#btnlogin2").click(function () {
+        loadLogin();
+    });
+    $("#btnregister2").click(function () {
+        loadRegister();
+    });
 });

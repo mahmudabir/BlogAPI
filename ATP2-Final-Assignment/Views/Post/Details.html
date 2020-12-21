@@ -5,78 +5,94 @@
     <title>Post Details</title>
     <script type="text/javascript" src="../Content/js/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="../Content/scripts/Post/Details.js"></script>
-    <script type="text/javascript">
-        //window.location.href = "User/Authenticate.html";
-        $(function () {
-            $("#loadCommon").load("https://localhost:44345/Views/Common/Common.html");
-        });
-    </script>
+    <link rel="stylesheet" href="../Content/css/bootstrap.css" crossorigin="anonymous">
 </head>
-<body>
-    <div id="loadCommon">
+<body class="bg-secondary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="https://localhost:44345/Views/Post/Index.html">Blog</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="https://localhost:44345/Views/Post/Index.html">Home</a>
+                </li>
+            </ul>
+            <a class="btn btn-outline-success my-2 my-sm-0 mr-2" href="https://localhost:44345/Views/User/Index.html">Profile</a>
+            <input class="btn btn-outline-danger my-2 my-sm-0 mr-2" type="button" id="logout" value="Logout">
+        </div>
+    </nav>
+
+
+    <div id="msg">
+
+    </div>
+
+    <div class="jumbotron">
+        <div id="divpostDetails">
+
+        </div>
+        <hr />
+        <hr />
+        <hr />
+
+
+
+        <input class="btn btn-success" type="button" id="btnNewComment" value="New Comment"><hr />
+
+
+        <div id="divNewComment">
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <label>Comment Text: </label>
+                        </td>
+                        <td>
+                            <textarea id="inputText" cols="50" rows="10"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <div align="right">
+                                <input class="btn btn-success" type="button" id="btnCreateComment" value="Create Comment" />
+                                <input class="btn btn-danger" type="button" id="btnCancelComment" value="Cancel" />
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
 
     </div>
 
 
-    <p id="msg"></p>
-    <hr><br />
-
-
-    <div id="divpostDetails">
-
-    </div>
-    <hr />
-    <hr />
-    <hr />
-
-
-
-    <input type="button" id="btnNewComment" value="New Comment"><hr />
-
-
-    <div id="divNewComment" hidden>
-
-        <table>
-            <tbody>
-                <tr>
-                    <td>
-                        <label>Comment Text: </label>
-                    </td>
-                    <td>
-                        <textarea id="inputText" cols="50" rows="10"></textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <div align="right">
-                            <input type="button" id="btnCreateComment" value="Create Comment" />
-                            <input type="button" id="btnCancelComment" value="Cancel" />
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-    </div>
-
-
-
-
-    <div id="divpostComments">
+    <div class="col-md-6">
         <h3>Comments</h3>
-        <table id="allComments" border="1">
-            <thead>
-                <tr>
-                    <th>Username</th>
-                    <th>Comment</th>
-                    <th>Commented On</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+        <div id="divpostComments">
+
+
+
+
+
+            <!--<table id="allComments" border="1">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Comment</th>
+                        <th>Commented On</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>-->
+        </div>
     </div>
 
 </body>
