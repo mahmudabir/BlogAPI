@@ -30,5 +30,14 @@ namespace ATP2_Final_Assignment.Repositories
                 db.SaveChanges();
             }
         }
+
+
+
+
+
+        public List<Post> PostSearch(string search)
+        {
+            return this.GetAll().Where(x => x.Title.Contains(search) || x.Content.Contains(search) || x.User.Username.Contains(search)).ToList();
+        }
     }
 }

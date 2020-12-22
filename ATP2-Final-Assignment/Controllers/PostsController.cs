@@ -37,6 +37,21 @@ namespace ATP2_Final_Assignment.Controllers
             }
         }
 
+        [Route("search/{s}", Name = "GetPostSearch"), BasicAuthentication]
+        public IHttpActionResult GetPostSearch(string s = "")
+        {
+            var postFromDB = postRepository.PostSearch(s);
+
+            if (postFromDB != null)
+            {
+                return Ok(postFromDB);
+            }
+            else
+            {
+                return BadRequest("No Post Found");
+            }
+        }
+
         [Route(""), BasicAuthentication]
         public IHttpActionResult Post(Post post)
         {

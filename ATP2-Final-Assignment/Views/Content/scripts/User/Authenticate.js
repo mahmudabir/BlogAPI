@@ -93,4 +93,8 @@
     $("#btnregister2").click(function () {
         loadRegister();
     });
+
+    $("#msg").click(function () {
+        $(this).hide();
+    });
 });

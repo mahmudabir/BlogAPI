@@ -127,6 +127,71 @@
 
 
 
+    // search request
+    var loadSearch = function () {
+        if ($("#search").val() == null || $("#search").val() == "") {
+            loadAllPosts();
+            return 0;
+        }
+
+        $.ajax({
+            url: "https://localhost:44345/api/posts/search/" + $("#search").val(),
+            method: "GET",
+            headers: {
+                'Authorization': 'Basic ' + localStorage.authUser,
+            },
+            complete: function (xhr, status) {
+                if (xhr.status == 200) {
+                    console.log(xhr.responseJSON);
+
+                    var data = xhr.responseJSON;
+
+                    var str = '';
+
+
+                    var cntnt = '';
+                    for (var i = 0; i < data.length; i++) {
+                        cntnt = data[i].content;
+
+                        str += "<div class=\"card \">"
+                            + "<div class=\"card-header\">Posted By:<strong> @"
+                            + data[i].user.username + "</strong>"
+                            + "</div>"
+                            + "<div class=\"card-body\">"
+                            + "<h5 class=\"card-title\">" + data[i].title + "</h5>"
+                            + "<p class=\"card-text\">" + cntnt.substring(0, 300) + " ..........</p>"
+                            + "<a href=\"Details.html?pid=" + data[i].postId + "\" class=\"btn btn-primary\">Details</a>"
+                            + "</div>"
+                            + "<div class=\"card-footer text-muted\">Posted On: <strong>"
+                            + data[i].postTime + "</strong>"
+                            + "</div >"
+                            + " </div ><br><br>";
+
+
+                    }
+
+                    $("#divAllPosts").html(str);
+
+
+                }
+                else {
+                    $("#msg").html("<div class=\"alert alert-primary\" role=\"alert\">" + xhr.status + ":" + xhr.statusText + "</div>");
+                }
+            }
+        });
+    }
+
+
+    $("#search").keyup(function () {
+        $("#divAllPosts").html("");
+        loadSearch();
+    });
+
+
+
+
+
+
     $("#btnNewPost").click(function () {
         $("#divNewPost").removeAttr("hidden");
         $(this).hide();
@@ -147,7 +212,9 @@
 
 
 
-
+    $("#msg").click(function () {
+        $(this).hide();
+    });
 
 
 });

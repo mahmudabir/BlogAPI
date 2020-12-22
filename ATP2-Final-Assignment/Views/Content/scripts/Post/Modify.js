@@ -133,6 +133,8 @@
 
 
 
-
+    $("#msg").click(function () {
+        $(this).hide();
+    });
 
 });

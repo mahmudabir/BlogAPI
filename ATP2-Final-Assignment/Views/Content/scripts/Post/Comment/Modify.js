@@ -132,4 +132,8 @@
         loadLogout();
     });
 
+    $("#msg").click(function () {
+        $(this).hide();
+    });
+
 });
