@@ -8,8 +8,7 @@ To generate database run the below in Nuget Package Manager Console:<br>
 Also Database backup provided in `App_Data` Directory<br>
 
 <br>
-<a href="">Live Demo</a>
-
+<!--<a href="">Live Demo</a>-->
 
 
 # Login Information<br />
