@@ -4,7 +4,9 @@
 `For Database Sql Server 19 was used.`<br>
 `Developed Using Code-First Approch`<br><br>
 To generate database run the below in Nuget Package Manager Console:<br>
-`update-database`<br>
+`update-database`<br><br>
+Also Database backup provided in `App_Data` Directory<br>
+
 <br>
 <a href="">Live Demo</a>
 
