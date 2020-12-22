@@ -34,17 +34,9 @@
                     //$("#allPosts tbody").html(str);
 
 
-
+                    var cntnt = '';
                     for (var i = 0; i < data.length; i++) {
-
-                        //str += "<tr><td>"
-                        //    + data[i].title + "</td><td><p>"
-                        //    + data[i].content + "</p></td><td>"
-                        //    + data[i].postTime + "</td><td>"
-                        //    + data[i].user.username
-                        //    + "</td><td><a href=\"Details.html?pid=" + data[i].postId + "\"><button class=\"btn btn-primary\""
-                        //    + "\">Details</button></a></td></tr>";
-
+                        cntnt = data[i].content;
 
                         str += "<div class=\"card \">"
                             + "<div class=\"card-header\">Posted By:<strong> @"
@@ -52,7 +44,7 @@
                             + "</div>"
                             + "<div class=\"card-body\">"
                             + "<h5 class=\"card-title\">" + data[i].title + "</h5>"
-                            + "<p class=\"card-text\">" + data[i].content + "</p>"
+                            + "<p class=\"card-text\">" + cntnt.substring(0, 300) + " ..........</p>"
                             + "<a href=\"Details.html?pid=" + data[i].postId + "\" class=\"btn btn-primary\">Details</a>"
                             + "</div>"
                             + "<div class=\"card-footer text-muted\">Posted On: <strong>"
@@ -63,7 +55,6 @@
 
                     }
 
-                    //$("#allPosts tbody").html(str);
                     $("#divAllPosts").html(str);
 
 

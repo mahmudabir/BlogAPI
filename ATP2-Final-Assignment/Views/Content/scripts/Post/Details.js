@@ -106,7 +106,7 @@
                     var data = xhr.responseJSON;
 
                     var str = '';
-
+                    var txt = '';
 
                     for (var i = 0; i < data.length; i++) {
                         //str += "<p><strong>" + data[i].username + ":      </strong><label>" + data[i].text + "<label></p>";
@@ -120,13 +120,14 @@
                         //    + "\">Details</button></a></td></tr>";
 
 
+                        txt = data[i].text;
+
                         str += "<div class=\"card \">"
                             + "<div class=\"card-header\">Posted By:<strong> @"
                             + data[i].username + "</strong>"
                             + "</div>"
                             + "<div class=\"card-body\">"
-                            //+ "<h5 class=\"card-title\">" + data[i].title + "</h5>"
-                            + "<p class=\"card-text\">" + data[i].text + "</p>"
+                            + "<p class=\"card-text\">" + txt.substring(0, 200) + " ..........</p>"
                             + "<a href=\"Comment/Index.html?pid=" + data[i].postId + "&cid=" + data[i].commentId + " \" class=\"btn btn-primary\">Details</a>"
                             + "</div>"
                             + "<div class=\"card-footer text-muted\">Posted On: <strong>"
