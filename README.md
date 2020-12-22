@@ -1,4 +1,4 @@
-# ATP2-Final-Assignment
+# BlogAPI
 `This is a simple blog.`<br>
 `Developed using ASP.NET MVC 5 WEB API.`<br>
 `For Database Sql Server 19 was used.`<br>
