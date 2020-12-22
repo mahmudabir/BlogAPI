@@ -7,7 +7,7 @@ namespace ATP2_Final_Assignment.Migrations
     {
         public override void Up()
         {
-            Sql("INSERT INTO Users (Username, Password) VALUES ('abir', 'abir'),('leon', 'leon'),('hasib','hasib'), ('tanvir', 'tanvir'),('imran', 'imran'),('milon', 'milon')");
+            //Sql("INSERT INTO Users (Username, Password) VALUES ('abir', 'abir'),('leon', 'leon'),('hasib','hasib'), ('tanvir', 'tanvir'),('imran', 'imran'),('milon', 'milon')");
         }
 
         public override void Down()
