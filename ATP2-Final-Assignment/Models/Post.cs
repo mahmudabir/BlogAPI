@@ -24,6 +24,6 @@ namespace ATP2_Final_Assignment.Models
         public virtual User User { get; set; }
 
         [JsonIgnore]
-        public ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }

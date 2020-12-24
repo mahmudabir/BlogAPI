@@ -19,6 +19,6 @@ namespace ATP2_Final_Assignment.Models
         public string Password { get; set; }
 
         [JsonIgnore]
-        public ICollection<Post> Posts { get; set; }
+        public virtual ICollection<Post> Posts { get; set; }
     }
 }

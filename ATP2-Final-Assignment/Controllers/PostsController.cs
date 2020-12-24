@@ -29,7 +29,15 @@ namespace ATP2_Final_Assignment.Controllers
 
             if (postFromDB != null)
             {
-                return Ok(postFromDB);
+                return Ok(postFromDB
+                    .AddLinks(
+                    new HyperMedia
+                    {
+                        Href = Url.Link("GetPostByID", new { id = id }),
+                        Rel = "Get",
+                        Method = "Get one post by ID"
+                    })
+                    );
             }
             else
             {

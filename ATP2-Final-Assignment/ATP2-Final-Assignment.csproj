@@ -144,6 +144,8 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AssDbContext.cs" />
     <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\HyperMedia.cs" />
+    <Compile Include="Models\LinkExtensions.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

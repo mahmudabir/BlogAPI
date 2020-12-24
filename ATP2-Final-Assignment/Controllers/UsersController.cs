@@ -17,10 +17,19 @@ namespace ATP2_Final_Assignment.Controllers
     {
         private UserRepository userRepository = new UserRepository();
 
-        [Route("{id}"), BasicAuthentication]
+        [Route("{id}", Name = "GetUserByID"), BasicAuthentication]
         public IHttpActionResult GetUserByID(int id)
         {
-            return Ok(userRepository.Get(id));
+            var userFromDB = userRepository.Get(id);
+            return Ok(userFromDB
+                    .AddLinks(
+                    new HyperMedia
+                    {
+                        Href = Url.Link("GetUserByID", new { id = id }),
+                        Rel = "Get",
+                        Method = "Get one user by ID"
+                    })
+                    );
         }
 
         [Route("{id}"), BasicAuthentication]
