@@ -34,8 +34,8 @@ namespace ATP2_Final_Assignment.Controllers
                     new HyperMedia
                     {
                         Href = Url.Link("GetPostByID", new { id = id }),
-                        Rel = "Get",
-                        Method = "Get one post by ID"
+                        Method = "Get",
+                        Rel = "Get one post by ID"
                     })
                     );
             }

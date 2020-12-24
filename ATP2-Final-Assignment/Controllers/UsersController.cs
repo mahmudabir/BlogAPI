@@ -26,8 +26,8 @@ namespace ATP2_Final_Assignment.Controllers
                     new HyperMedia
                     {
                         Href = Url.Link("GetUserByID", new { id = id }),
-                        Rel = "Get",
-                        Method = "Get one user by ID"
+                        Method = "Get",
+                        Rel = "Get one user by ID"
                     })
                     );
         }
