@@ -58,22 +58,22 @@ namespace ATP2_Final_Assignment.Controllers
         [Route("login")]
         public IHttpActionResult PostLogin(User user)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
+            //{
+            User userFromDB = userRepository.GetUserByUsernameNPassword(user.Username, user.Password);
+            if (userFromDB != null)
             {
-                User userFromDB = userRepository.GetUserByUsernameNPassword(user.Username, user.Password);
-                if (userFromDB != null)
-                {
-                    return Ok(userFromDB);
-                }
-                else
-                {
-                    return Unauthorized();
-                }
+                return Ok(userFromDB);
             }
             else
             {
-                return BadRequest(ModelState);
+                return Unauthorized();
             }
+            //}
+            //else
+            //{
+            //    return BadRequest(ModelState);
+            //}
         }
 
 
